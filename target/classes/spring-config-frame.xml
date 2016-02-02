@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <import resource="spring-config-buttons.xml" />
+    <import resource="spring-config-fields.xml" />
+    <import resource="spring-config-labels.xml" />
+    <import resource="spring-config-layouts.xml" />
+    <import resource="spring-config-listeners.xml" />
+
+
+    <bean id="myFrame"
+          class="ru.stepanian.calc.components.MyFrame" init-method="init">
+        <constructor-arg value="Calculator" type="java.lang.String"/>
+        <constructor-arg value="300" type="int"/>
+        <constructor-arg value="200" type="int"/>
+        <property name="contentPane" ref="mainPanel"/>
+    </bean>
+
+    <bean id="lineBorder" class="javax.swing.border.LineBorder" >
+        <constructor-arg value="BLACK"/>
+    </bean>
+
+    <bean id="mainPanel" class="ru.stepanian.calc.components.MyPanel" init-method="init">
+        <constructor-arg ref="gridLayout3"/>
+        <property name="border" ref="lineBorder" />
+        <property name="panelComponents">
+            <list>
+                <ref bean="p1" />
+                <ref bean="p2" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="p1" class="ru.stepanian.calc.components.MyPanel" init-method="init">
+        <constructor-arg ref="gridLayout1"/>
+        <property name="border" ref="lineBorder" />
+        <property name="panelComponents">
+            <list>
+                <ref bean="labelNumber1" />
+                <ref bean="field1" />
+                <ref bean="labelNumber2" />
+                <ref bean="field2" />
+                <ref bean="labelResult" />
+                <ref bean="fieldResult" />
+            </list>
+        </property>
+    </bean>
+
+    <bean id="p2" class="ru.stepanian.calc.components.MyPanel" init-method="init">
+        <constructor-arg ref="gridLayout2"/>
+        <property name="border" ref="lineBorder" />
+        <property name="panelComponents">
+            <list>
+                <ref bean="buttonPlus" />
+                <ref bean="buttonMinus" />
+                <ref bean="buttonMultiply" />
+                <ref bean="buttonDivide" />
+                <ref bean="buttonClean" />
+            </list>
+        </property>
+    </bean>
+
+
+</beans>

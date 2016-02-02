@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="buttonPlus" class="ru.stepanian.calc.components.MyButton" init-method="init">
+        <property name="text" value="+"/>
+        <property name="actionListener" ref="calculatorListener"/>
+    </bean>
+
+    <bean id="buttonMinus" class="ru.stepanian.calc.components.MyButton" init-method="init">
+        <property name="text" value="-"/>
+        <property name="actionListener" ref="calculatorListener"/>
+    </bean>
+
+    <bean id="buttonMultiply" class="ru.stepanian.calc.components.MyButton" init-method="init">
+        <property name="text" value="*"/>
+        <property name="actionListener" ref="calculatorListener"/>
+    </bean>
+
+    <bean id="buttonDivide" class="ru.stepanian.calc.components.MyButton" init-method="init">
+        <property name="text" value="/"/>
+        <property name="actionListener" ref="calculatorListener"/>
+    </bean>
+
+    <bean id="buttonClean" class="ru.stepanian.calc.components.MyButton" init-method="init">
+        <property name="text" value="C"/>
+        <property name="actionListener" ref="calculatorListener"/>
+    </bean>
+
+
+</beans>
